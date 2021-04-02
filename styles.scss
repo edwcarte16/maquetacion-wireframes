@@ -1,0 +1,965 @@
+$colorbg: #231f20;
+$colorgray0: #2c2c2e;
+$colorgray1: #414143;
+$colorgray2: #5b5b5d;
+$colorgray3: #6d6e72;
+$colorgray4: #949599;
+$colorgray5: #e7e7e9;
+
+$color1: #e6a233;
+$color2: #f46523;
+$color3: #c41f3f;
+$color4: #ed1b24;
+$color5: #cd1f28;
+$color6: #f25951;
+
+@mixin flex ($jc, $ai){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+@mixin headersMains ($height, $bgcolor){
+    height: $height;
+    width: 100%;
+    background-color: $bgcolor;}
+
+@mixin shape ($height, $width, $bgcolor){
+    height: $height;
+    width: $width;
+    background-color: $bgcolor;}
+
+body{
+    background-color: $colorbg;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    text-align: justify;
+
+    h1, p{
+    padding: 0;
+    margin: 0;
+    }
+}
+
+nav{
+    @include flex(center, center);
+    @include headersMains(8vh, #181818);
+    margin: 0;
+
+    .titlePag{
+        width: 15%;
+        margin-left: 4vw;
+
+        .titleGlobal{
+            display: none;
+        }
+
+        a{
+            margin: auto;
+            padding: 7px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: $colorgray5;
+            background-color: $color3;
+            font-size: 10pt;
+        }
+
+        a:hover{
+            color: $colorgray1;
+            background-color: $color1;
+        }
+    }
+    ul{
+        @include flex(center, center);
+        height: 90%;
+        width: 95%;
+        margin: 0;
+        padding: 0;
+
+        li{
+            padding: 0.3%;
+            margin: 0 1%;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: $colorgray3;
+                font-size: 1.7vw;
+            }
+
+            .selectPage{
+                color: $color3;
+            }
+        }
+
+        li:hover a{
+            color: $colorgray5;
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+
+    nav{
+        position: relative;
+        .titlePag{
+            display: flex;
+            width: 100%;
+            margin-left: 4vw;
+
+            .titleGlobal{
+                display: block;
+                color: $color3;
+                font-size: 18pt;
+            }
+
+            a{
+                margin: auto;
+                padding: 7px;
+                border-radius: 8px;
+                text-decoration: none;
+                color: $colorgray5;
+                background-color: $color3;
+            }
+
+            a:hover{
+                color: $colorgray1;
+                background-color: $color1;
+            }
+        }
+        .opaque{
+            height: 100%;
+            width: 100%;
+            background-color: #181818;
+        }
+    }
+
+    nav ul{
+        display: none;
+    }
+
+    #buttonNav{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 4vw;
+        .burguerMenu{
+            margin: 3px;
+            width: 5vh;
+            height: 0.7vh;
+            background-color: $colorgray2;
+        }
+    }
+
+    nav:hover{
+        position: relative;
+        .opaque{
+            height: 100%;
+            width: 100%;
+            background-color: #181818;
+            z-index: 1;
+        }
+        #buttonNav .burguerMenu{
+                background-color: $color3;
+                z-index: 3;
+            }
+
+        ul{
+            position: absolute;
+            display: block;
+            flex-direction: column;
+            background-color: #181818da;
+            backdrop-filter: blur(2rem);
+            align-items: stretch;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+            padding: 4% 8%;
+            right: 4vw;
+            top: 8vh;
+            z-index: 0;
+            animation: slide 600ms;
+    
+            li{
+                width: max-content;
+                margin: 15px;
+                list-style: none;
+                animation: list 2s;
+                animation-play-state: running;
+                a{
+                    text-decoration: none;
+                    color: $colorgray4;
+                    font-size: 3vw;
+                }
+
+                .selectPage{
+                    color: $color3;
+                }
+            }
+        }
+
+        li:hover a{
+            color: white;
+        }
+        @keyframes slide {
+            0%{
+                top: -350px;
+                display: none;
+            }
+            100%{
+                top: 8vh;
+                display: block
+            }   
+        }
+
+        @keyframes list {
+            0%{
+                opacity: 0;
+            }
+            10%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }   
+        }
+    }
+}
+
+#header1{
+    @include headersMains(17vh,$colorgray2);
+    @include flex(space-around, center);
+    
+    #shapeH11{
+        @include shape(50%, 25%, $color2)
+    }
+
+    #colH11{
+        @include flex(space-between, center);
+        @include shape(40%, 60%, transparent);
+
+        .shapes1{
+            @include shape(70%, 27%, $colorgray5);
+        }
+
+        #shapeH14{
+            background-color: $color1;
+        }
+    }
+}
+
+#header2{
+    @include headersMains(fit-content,$colorgray2);
+    @include flex(center, center);
+    #container21{
+        @include flex(center, center);
+        @include shape(100%, 92%, transparent);
+      
+        
+        #shapeH21{
+            @include shape(20vh, 20vh, $color1);
+            margin: 4vh 0;
+        }
+
+        #colH21{
+            @include flex(center, center);
+            flex-direction: column; 
+            @include shape(100%, 60%, transparent);
+            padding: 0 0 0 5%;
+            
+
+            #title21{
+                width: 100%;
+                color: $colorgray5;
+            }
+
+            #paragH21{
+                color: $colorgray4;
+            }
+        }
+    }
+}
+
+#header3{
+    @include flex(space-around, center);
+    @include headersMains(8vh,$colorgray2);
+    margin: 2vh 0;
+
+    #shapeH31{
+        @include shape(45%, 25%, $colorgray5);
+    }
+
+    #colH31{
+        @include flex(flex-end, center);
+        @include shape(45%, 60%, transparent);
+        .shapesH31{
+            @include shape(100%, 8%, $colorgray3);
+            margin-left: 5%;
+        }
+
+        #shapeH34{
+            @include shape(100%, 45%, $colorgray5);
+            margin-left: 4%;
+        }
+
+        #shapeH35{background-color: $color2;}
+    }
+    margin-bottom: 5vh;
+}
+
+#header4{
+    @include flex(center,center);
+    @include shape(fit-content, 100%, transparent);
+    
+    #containerH41{
+        margin: 4vw 0;
+        @include shape(100%, 90%, transparent);
+        flex-direction: column;
+        #titleH41{
+            color: $colorgray3;
+        }
+        #paragH41{
+            width: 70%;
+            color: $colorgray2;
+        }
+    }
+}
+
+#header6, #header7, #header8{
+    @include flex(flex-end, center);
+    @include headersMains(8vh,$colorgray2);
+    margin: 2vh 0;
+
+    #shapeH31{
+        @include shape(45%, 25%, $colorgray5);
+    }
+
+    #containerV1{
+        @include flex(center, center);
+        @include shape(45%, 60%, transparent);
+        margin-right: 4vw;
+        .shapesHV1{
+            @include shape(100%, 8%, $colorgray3);
+            margin-left: 5%;
+        }
+
+        #shapeHV2{
+            @include shape(100%, 45%, $colorgray5);
+            margin-left: 4%;
+        }
+
+        #shapeHV1{background-color: $color2;}
+    }
+}
+
+/*****************************Mains*************************************/
+.playButton{
+    @include shape(0, 0, none);
+    border-top: 3vh solid transparent;
+    border-bottom: 3vh solid transparent;
+    border-left: 5vh solid $colorgray5;
+}
+/*****************************Main 1*************************************/
+#main1{
+    @include headersMains(fit-content,transparent);
+    @include flex(center, initial);
+
+    #colM11{
+        @include shape(100%, 58%, $colorgray1);
+        @include flex(center, center);
+        #containerM11{
+            @include shape(100%, 91%, transparent);
+            margin-top: 1.7vh;
+            #shapeM11{
+                @include shape(18vh, 30vw, $color2)
+            }
+            .tittleM1{
+                color: $colorgray5;
+            }
+            .paragM1{
+                color:$colorgray2;
+            }
+            #shapeM12{
+                @include shape(18vh, 18vw, $color1)
+            }
+        }
+    }
+
+    #colM12{
+        @include flex(center, initial);
+        @include shape(100%, 26%, $colorgray3);
+        #containerM12{
+            @include shape(100%, 85%, transparent);
+            margin-top: 1.7vh;
+            .tittleM2{
+                color: $colorgray4;
+            }
+            .paragM2{
+                color:$colorgray1;
+            }
+        }
+    }
+}
+/*****************************Main 2*************************************/
+#main2{
+    @include headersMains(fit-content, transparent);
+    @include flex(center, initial);
+    #colM21{
+        @include shape(100%, 50%, transparent);
+        margin-right: 3.5%;
+        margin-top: 4.5vh;
+        #shapeM21{
+            @include shape(29vh, 100%, $colorgray1);
+        }
+        #paragM21{
+            color: $colorgray3;
+        }
+        #container22{
+            @include shape(100%, 100%, transparent);
+            @include flex(space-between, center);
+            .box21{
+                @include shape(100%, 23%, transparent);
+                @include flex(center, initial);
+                flex-wrap: wrap;
+             
+            }
+            .shapeM22{
+                @include shape(9vh, 80%, $colorgray3);
+                margin-bottom: 2vh;
+            }
+            .paragM22{
+                
+                text-align: center;
+                color: $colorgray2;
+            }
+        }
+    }
+    #colM22{
+        @include shape(100%, 37%, $colorgray1);
+        @include flex(center, center);
+        
+        #container23{
+            @include shape(100%, 80%, transparent);
+            @include flex(space-between, center);
+            flex-direction: column;
+
+            .box22{
+                @include shape(100%,100%, transparent);
+                @include flex(space-between, initial);
+                margin-top: 4.5vh;
+
+                .shapeM23{
+                    @include shape(20vh, 40%, red);
+                }
+
+                #shapeM23{ background-color: $color3}
+                #shapeM24{ background-color: $color4}
+                #shapeM25{ background-color: $color5}
+                #shapeM26{ background-color: $color6}
+
+                .box23{
+                    @include shape(50%,50%, transparent);
+
+                    .title22{
+                        color: $colorgray4;
+                    }
+
+                    .paragM23{
+                        text-align: left;
+                        color: $colorgray2;
+                    }
+                }
+            }
+        }
+    }
+}   
+/*****************************Main 3*************************************/
+#main3{
+    @include headersMains(100%,$colorbg);
+    @include flex(center,initial);
+    flex-wrap: wrap;
+
+    #containerM31{
+        @include shape(100%, 85%, transparent);
+        @include flex(initial, center);
+
+        #shapeM31{
+            @include shape(25vh, 25vh, $color3);
+        }
+        
+        #containerM32{
+            @include shape(100%, 40%, transparent);
+            margin-left: 4%;
+
+            #titleM31{
+                color: $colorgray4;
+            }
+
+            #paragM31{
+                color: $colorgray2;
+            }
+        }
+    }
+
+    #shapeM32{
+        @include shape(38vh, 85%, $colorgray1);
+        margin-top: 4.5vh;
+    }
+
+    #containerM33{
+        @include shape(fit-content, 85%, transparent);
+        @include flex(space-between, initial);
+        margin-top: 4vh;
+        #paragM32{
+            width: 55%;
+            color: $colorgray2
+        }
+        #containerM34{
+            @include shape(fit-content, 38%, transparent);
+            #paragM33{color: $colorgray1}
+            #containerM35{
+                @include shape(7vh, 100%, transparent);
+                @include flex(space-between, initial);
+                margin-bottom: 4vh;
+
+                .shapesM31{
+                    @include shape(100%, 25%, $colorgray3);
+                }
+                #shapeM33{ background-color: $colorgray1}
+                #shapeM34{ background-color: $colorgray2}
+                #shapeM35{ background-color: $colorgray3}
+            }
+        }
+    }
+}
+/*****************************Main 4*************************************/
+#main4{
+    @include headersMains(76vh,$colorbg);
+    @include flex(initial, center);
+    flex-direction: column;
+    #shapeM41{
+        @include shape(45vw, 90%, $color3);
+        @include flex(center, center);
+        margin-bottom: 2vh;
+    }
+
+    #containerM41{
+        @include flex(center, center);
+        @include shape(30px, 90%, transparent);
+        
+        #bar{
+            @include shape(35%, 30%, $color3);
+        }
+        #circleControl{
+            position: absolute;
+            @include shape(3vw, 3vw, $colorgray5);
+            border-radius: 100%;
+            left: 30%;
+        }
+
+        @media (min-width: 1000px) {
+            #circleControl{
+                @include shape(2vw, 2vw, $colorgray5);
+            }
+        }
+        #barBackground{
+            @include shape(35%, 70%, $colorgray1);
+        }
+    }
+
+    #containerM42{
+        @include flex(space-between, center);
+        @include shape(initial, 90%, transparent);
+        margin-top: 2vh;
+        margin-bottom: 4vh;
+        .colM41{
+            @include shape(fit-content, 47%, transparent);
+            .titleM41{
+                color: $colorgray3;
+            }
+            .paragM41{
+                color: $colorgray2;
+                text-align: center;
+            }
+        }
+    }
+}
+/*****************************Main 5*************************************/
+#main5{
+    @include headersMains(fit-content,$colorbg);
+    #containerM51{
+        @include flex(center, center);
+        margin-top: 4vh;
+
+        #boxheader{
+            @include flex(space-between, center);
+            @include shape(100%, 90%, $colorgray1);
+
+            #shapeM51{
+                @include shape(35vh, 45%, $color3);
+                @include flex(center, center);
+                margin: 4%;
+            } 
+        }
+    
+        #colM51{
+            width: 45%;
+            margin: 4%;
+            #titleM51{
+                color: $colorgray3;
+            }
+    
+            #paragM51{
+                color: $colorgray2;
+            }
+        }
+    }
+        
+
+    #containerM52{
+        @include flex(space-around, initial);
+        padding: 4vh 2%;
+
+    #colM52{
+        @include flex(space-between, initial);
+        width: 50vw;
+
+        .colM52a{
+            width: 30%;
+            
+
+            .shapeM52{
+                @include shape(15vh, 100%, $color2);
+            }
+
+            .titleM52{
+                color: $colorgray3;
+                font-size: medium;
+                text-align: center;
+            }
+            .paragM52{
+                color: $colorgray2;
+                font-size: small;
+                text-align: center;
+            }
+        }
+    }
+
+    #colM53{
+        width: 33vw;
+        background-color: $colorgray1;
+        .containerM53{
+            margin: 5%;
+            .titleM53{
+                color: $colorgray4;
+                font-size: medium;
+                text-align: center;
+            }
+            .paragM53{
+                color: $colorgray3;
+                font-size: small;
+                text-align: center;
+            }
+        }
+    }
+    }
+}
+/*****************************Main 6*************************************/
+#main6{
+    @include headersMains(80vh,$colorbg);
+    #containerM61{
+        @include shape(fit-content, 100%, transparent);
+        @include flex(space-around, center);
+
+        #colM61{
+            @include shape(100%, max-content, $colorgray0);
+            overflow: auto;
+            
+            ul{
+                scrollbar-width: 5px;
+                margin: auto;
+                padding: 3vw;
+                list-style: none;
+                li{
+                    padding: 5px;
+                    margin-bottom: 12px;
+                    border-radius: 7px;
+                    a{
+                        text-align: center;
+                        text-decoration: none;
+                        color: $colorgray2;
+                    }
+                }
+
+                li:hover{
+                    background-color: $color2;
+
+                    a{
+                        color: $colorgray0;
+                    }
+                    
+                }
+            }
+        }
+
+        #colM62{
+            @include shape(100%, 68%, transparent);
+            @include flex(center, center);
+            flex-wrap: wrap;
+            #containerM63{
+                @include shape(30vh, 100%, transparent);
+                @include flex(space-around, center);
+                margin-top: 4vh;
+                #arrowL{
+                    height: 0;
+                    width: 0;
+                    border-right: 30px solid white;
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    animation: girar 1s infinite;
+                }
+                #shapeM61{
+                    @include shape(30vh, 70%, $colorgray1);
+                }
+
+                #arrowR{
+                    height: 0;
+                    width: 0;
+                    border-left: 30px solid white;
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                }
+            }
+            #containerM64{
+                @include shape(50%, 100%, transparent);
+                @include flex(space-around, center);
+                margin: 4vh 0;
+
+                .colM63{
+                    @include shape(100%, 28%, transparent);
+                    .shapeM62{
+                        @include shape(15vh, 100%, $color2);
+                    }
+                    .titleM61{
+                        text-align: center;
+                        color:$colorgray5;
+                    }
+
+                    .paragM61{
+                        text-align: center;
+                        color:$colorgray2;
+                    }
+                }
+            }
+        }
+    }
+    #footer6{
+        @include flex(space-around, center);
+        @include shape(fit-content, 100vw, $colorgray0);
+        padding: 3vh 0;
+        .colF61{
+            @include shape(fit-content, 21%, transparent);
+            .paragF61{
+                text-align: center;
+                color: $colorgray1;
+            }
+        }
+    }
+}
+/*****************************Main 7*************************************/
+#main7{
+    @include headersMains(fit-content,$colorbg);
+    @include flex(center, initial);
+    flex-wrap: wrap;
+    #containerM71{
+        @include shape(44vh, 90vw, $colorgray1);
+        @include flex(center, center);
+        margin-bottom: 4vh;
+        #shapeM71{
+            @include shape(4vh, 42vw, $colorgray5);
+            @include flex(flex-end, initial);
+            #shapeM72{
+                @include shape(4vh, 4vw, $color2);
+            }
+        }
+    }
+    #containerM72{
+        @include shape(fit-content, 90vw, transparent);
+        margin-bottom: 4vh;
+        @include flex(space-between, initial);
+        flex-wrap: wrap;
+        #colM71{
+            @include shape(20vw, 20vw, $color1);
+        }
+
+        #colM72{
+            @include shape(fit-content, 35vw, transparent);
+            #titleM71{
+                color: $colorgray3;
+            }
+            #paragM71{
+                color: $colorgray2;
+            }
+        }
+
+        #colM73{
+            @include shape(fit-content, 25vw, transparent);
+            @include flex(center, center);
+            flex-wrap: wrap;
+            #top{
+                margin-top: 0;
+            }
+            .containerM73{
+                @include shape(100%, 100%, transparent);
+                @include flex(space-between, initial);
+                margin-top: 2.5vh;
+                .shapeM73{
+                    @include shape(5.9vw, 6.5vw, $colorgray2);
+                }
+                .containerM74{
+                    @include shape(100%, 65%, transparent);
+                    .titleM72{
+                        color: $colorgray3;
+                    }
+                    .paragM72{
+                        color: $colorgray2;
+                    }
+                }    
+            }
+        }
+    }
+}
+/*****************************Main 8*************************************/
+#main8{
+    @include headersMains(80vh,$colorbg);
+    @include flex(center, initial);
+    flex-wrap: wrap;
+    .paragM81{
+        color:$colorgray1;
+    }
+    #containerM81{
+        @include shape(44vh, 89vw, $colorgray3);
+        @include flex(center, flex-end);
+        margin-bottom: 2.5vh;
+        #containerM82{
+            @include shape(4vw, 22vw, transparent);
+            margin-bottom: 4vh;
+            @include flex(space-between, initial);
+            .shapeM81{
+                @include shape(4vw, 4vw, $colorgray2);
+            }            
+        }
+    }
+
+    #containerM83{
+        @include shape(fit-content, 89vw, transparent);
+        @include flex(space-between, flex-end);        
+
+        #colM81{
+            @include shape(100%, 23vw, transparent);
+            margin-bottom: 4.5vh;
+            #containerM84{
+                @include shape(11%, 100%, transparent);
+                margin-bottom: 2vh;
+                #titleM81{
+                    color: $color2;
+                }
+            }
+            #containerM85{
+                @include shape(6%, 100%, transparent);
+                @include flex(space-between, initial);
+                margin-bottom: 2vh;
+                #shapeM82{
+                    @include shape(6vw, 6vw, $colorgray1);
+                }
+                #shapeM83{
+                    @include shape(6vw, 6vw, $colorgray2);
+                }
+                #shapeM84{
+                    @include shape(6vw, 6vw, $colorgray3);
+                }
+            }
+            #paragM82{
+                @include shape(11%, 100%, transparent); 
+            }
+        }
+    }
+    #colM82{
+        @include shape(fit-content, 35vw, transparent);
+        margin-bottom: 4.5vh;
+        #paragM83{
+            @include shape(10%, 100%, transparent);
+            margin-bottom: 2vh;
+        }
+        #containerM86{
+            @include shape(9%, 100%, transparent);
+            @include flex(space-between, initial);
+            .shapeM85{
+                @include shape(9vw, 9vw, $colorgray1);
+            }
+        }
+    }
+}
+/*****************************Main 9*************************************/
+#main9{
+    @include headersMains(76vh,$colorbg);
+    @include flex(center, initial);
+    flex-wrap:wrap;
+
+    #containerM91{
+        @include shape(fit-content, 90%, transparent);
+        #containerM92{
+            @include shape(100%, 50%, transparent);
+            margin: 3vh 0;
+            #titleM91{
+                color: $color2;
+            }
+
+            #paragM91{
+                color: $colorgray1;
+            }
+        }
+
+        .containerM93{
+            @include shape(15vh, 100%, transparent);
+            @include flex(space-between, center);
+            margin: 3vh 0;
+            .shapeM91{
+                @include shape(15vh, 20%, $colorgray2);
+            }
+
+            .shapeM92{
+                @include shape(15vh, 78%, $colorgray0);
+            }
+            
+        }
+
+        #containerM94{
+            @include shape(100%, 100%, transparent);
+            @include flex(flex-end, initial);
+            margin: 3vh 0;
+
+            #paragM92{
+                color: $colorgray1;
+                width: 50%
+                
+            }
+        }
+    }
+    #footer9{
+        @include flex(space-around, center);
+        @include shape(fit-content, 100vw, $colorgray0);
+        padding: 3vh 0;
+        .colF91{
+            @include shape(fit-content, 21%, transparent);
+            
+            .titleF91{
+                text-align: center;
+                color: $color2;
+            }
+            .paragF91{
+                text-align: center;
+                color: $colorgray1;
+            }
+        }
+    }
+}
