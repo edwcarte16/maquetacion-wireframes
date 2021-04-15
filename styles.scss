@@ -80,10 +80,11 @@ nav{
             padding: 0.3%;
             margin: 0 1%;
             list-style: none;
+            animation: bounce 1s;
             a{
                 text-decoration: none;
                 color: $colorgray3;
-                font-size: 1.7vw;
+                font-size: 1.5vw;
             }
 
             .selectPage{
@@ -93,11 +94,12 @@ nav{
 
         li:hover a{
             color: $colorgray5;
+            
         }
     }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 650px) {
 
     nav{
         position: relative;
@@ -142,6 +144,7 @@ nav{
         flex-direction: column;
         position: absolute;
         right: 4vw;
+        z-index: 1;
         .burguerMenu{
             margin: 3px;
             width: 5vh;
@@ -160,14 +163,14 @@ nav{
         }
         #buttonNav .burguerMenu{
                 background-color: $color3;
-                z-index: 3;
+                z-index: 2;
             }
 
         ul{
             position: absolute;
             display: block;
             flex-direction: column;
-            background-color: #181818da;
+            background-color: #181818;
             backdrop-filter: blur(2rem);
             align-items: stretch;
             justify-content: center;
@@ -261,19 +264,21 @@ nav{
         }
 
         #colH21{
-            @include flex(center, center);
-            flex-direction: column; 
+            @include flex(left, center);
+            flex-wrap: wrap; 
             @include shape(100%, 60%, transparent);
             padding: 0 0 0 5%;
             
 
             #title21{
-                width: 100%;
+                width: 20%;
                 color: $colorgray5;
+                margin: 5% 0 0 0;
             }
 
             #paragH21{
                 color: $colorgray4;
+                margin: 5% 0;
             }
         }
     }
@@ -313,7 +318,7 @@ nav{
     #containerH41{
         margin: 4vw 0;
         @include shape(100%, 90%, transparent);
-        flex-direction: column;
+        flex-wrap: wrap;
         #titleH41{
             color: $colorgray3;
         }
@@ -360,26 +365,26 @@ nav{
 }
 /*****************************Main 1*************************************/
 #main1{
-    @include headersMains(fit-content,transparent);
+    @include headersMains(100%,transparent);
     @include flex(center, initial);
 
     #colM11{
-        @include shape(100%, 58%, $colorgray1);
+        @include shape(fit-content, 58%, $colorgray1);
         @include flex(center, center);
         #containerM11{
             @include shape(100%, 91%, transparent);
             margin-top: 1.7vh;
             #shapeM11{
-                @include shape(18vh, 30vw, $color2)
+                @include shape(28vh, 30vw, $color2)
             }
-            .tittleM1{
+            .titleM1{
                 color: $colorgray5;
             }
             .paragM1{
                 color:$colorgray2;
             }
             #shapeM12{
-                @include shape(18vh, 18vw, $color1)
+                @include shape(vh, 18vw, $color1)
             }
         }
     }
@@ -390,7 +395,7 @@ nav{
         #containerM12{
             @include shape(100%, 85%, transparent);
             margin-top: 1.7vh;
-            .tittleM2{
+            .titleM2{
                 color: $colorgray4;
             }
             .paragM2{
@@ -540,6 +545,7 @@ nav{
         @include shape(45vw, 90%, $color3);
         @include flex(center, center);
         margin-bottom: 2vh;
+        animation: jello 2s;
     }
 
     #containerM41{
@@ -598,6 +604,7 @@ nav{
                 @include shape(35vh, 45%, $color3);
                 @include flex(center, center);
                 margin: 4%;
+                animation: jello 2s;
             } 
         }
     
@@ -715,7 +722,7 @@ nav{
                     border-right: 30px solid white;
                     border-top: 20px solid transparent;
                     border-bottom: 20px solid transparent;
-                    animation: girar 1s infinite;
+                    animation: zoomInLeft 2s;
                 }
                 #shapeM61{
                     @include shape(30vh, 70%, $colorgray1);
@@ -727,6 +734,7 @@ nav{
                     border-left: 30px solid white;
                     border-top: 20px solid transparent;
                     border-bottom: 20px solid transparent;
+                    animation: zoomInRight 2s;
                 }
             }
             #containerM64{
@@ -774,6 +782,7 @@ nav{
         @include shape(44vh, 90vw, $colorgray1);
         @include flex(center, center);
         margin-bottom: 4vh;
+        animation: jello 2s;
         #shapeM71{
             @include shape(4vh, 42vw, $colorgray5);
             @include flex(flex-end, initial);
@@ -833,13 +842,12 @@ nav{
     @include headersMains(80vh,$colorbg);
     @include flex(center, initial);
     flex-wrap: wrap;
-    .paragM81{
-        color:$colorgray1;
-    }
+
     #containerM81{
         @include shape(44vh, 89vw, $colorgray3);
         @include flex(center, flex-end);
         margin-bottom: 2.5vh;
+        animation: jello 2s;
         #containerM82{
             @include shape(4vw, 22vw, transparent);
             margin-bottom: 4vh;
@@ -848,6 +856,9 @@ nav{
                 @include shape(4vw, 4vw, $colorgray2);
             }            
         }
+    }
+    .paragM81{
+        color:$colorgray1;
     }
 
     #containerM83{
@@ -962,4 +973,29 @@ nav{
             }
         }
     }
+}
+
+.animation1{
+    animation: fadeIn 1.5s;
+}
+
+.animation2{
+    animation: flipInX;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+
+.animation3{
+    animation: bounceInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 0.8s;
+}
+
+.animationTitles{
+    animation: rubberBand;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    animation-delay: 0.8s;
 }

@@ -71,12 +71,14 @@ nav ul li {
   padding: 0.3%;
   margin: 0 1%;
   list-style: none;
+  -webkit-animation: bounce 1s;
+          animation: bounce 1s;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #6d6e72;
-  font-size: 1.7vw;
+  font-size: 1.5vw;
 }
 
 nav ul li .selectPage {
@@ -87,7 +89,7 @@ nav ul li:hover a {
   color: #e7e7e9;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 650px) {
   nav {
     position: relative;
   }
@@ -133,6 +135,7 @@ nav ul li:hover a {
             flex-direction: column;
     position: absolute;
     right: 4vw;
+    z-index: 1;
   }
   #buttonNav .burguerMenu {
     margin: 3px;
@@ -151,7 +154,7 @@ nav ul li:hover a {
   }
   nav:hover #buttonNav .burguerMenu {
     background-color: #c41f3f;
-    z-index: 3;
+    z-index: 2;
   }
   nav:hover ul {
     position: absolute;
@@ -160,7 +163,7 @@ nav ul li:hover a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-color: #181818da;
+    background-color: #181818;
     -webkit-backdrop-filter: blur(2rem);
             backdrop-filter: blur(2rem);
     -webkit-box-align: stretch;
@@ -336,16 +339,14 @@ nav ul li:hover a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   height: 100%;
   width: 60%;
   background-color: transparent;
@@ -353,12 +354,14 @@ nav ul li:hover a {
 }
 
 #header2 #container21 #colH21 #title21 {
-  width: 100%;
+  width: 20%;
   color: #e7e7e9;
+  margin: 5% 0 0 0;
 }
 
 #header2 #container21 #colH21 #paragH21 {
   color: #949599;
+  margin: 5% 0;
 }
 
 #header3 {
@@ -438,10 +441,8 @@ nav ul li:hover a {
   height: 100%;
   width: 90%;
   background-color: transparent;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #header4 #containerH41 #titleH41 {
@@ -521,9 +522,7 @@ nav ul li:hover a {
 
 /*****************************Main 1*************************************/
 #main1 {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
   width: 100%;
   background-color: transparent;
   display: -webkit-box;
@@ -538,7 +537,9 @@ nav ul li:hover a {
 }
 
 #main1 #colM11 {
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 58%;
   background-color: #414143;
   display: -webkit-box;
@@ -560,12 +561,12 @@ nav ul li:hover a {
 }
 
 #main1 #colM11 #containerM11 #shapeM11 {
-  height: 18vh;
+  height: 28vh;
   width: 30vw;
   background-color: #f46523;
 }
 
-#main1 #colM11 #containerM11 .tittleM1 {
+#main1 #colM11 #containerM11 .titleM1 {
   color: #e7e7e9;
 }
 
@@ -574,7 +575,7 @@ nav ul li:hover a {
 }
 
 #main1 #colM11 #containerM11 #shapeM12 {
-  height: 18vh;
+  height: vh;
   width: 18vw;
   background-color: #e6a233;
 }
@@ -601,7 +602,7 @@ nav ul li:hover a {
   margin-top: 1.7vh;
 }
 
-#main1 #colM12 #containerM12 .tittleM2 {
+#main1 #colM12 #containerM12 .titleM2 {
   color: #949599;
 }
 
@@ -940,6 +941,8 @@ nav ul li:hover a {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 2vh;
+  -webkit-animation: jello 2s;
+          animation: jello 2s;
 }
 
 #main4 #containerM41 {
@@ -1071,6 +1074,8 @@ nav ul li:hover a {
       -ms-flex-align: center;
           align-items: center;
   margin: 4%;
+  -webkit-animation: jello 2s;
+          animation: jello 2s;
 }
 
 #main5 #containerM51 #colM51 {
@@ -1251,8 +1256,8 @@ nav ul li:hover a {
   border-right: 30px solid white;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  -webkit-animation: girar 1s infinite;
-          animation: girar 1s infinite;
+  -webkit-animation: zoomInLeft 2s;
+          animation: zoomInLeft 2s;
 }
 
 #main6 #containerM61 #colM62 #containerM63 #shapeM61 {
@@ -1267,6 +1272,8 @@ nav ul li:hover a {
   border-left: 30px solid white;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
+  -webkit-animation: zoomInRight 2s;
+          animation: zoomInRight 2s;
 }
 
 #main6 #containerM61 #colM62 #containerM64 {
@@ -1370,6 +1377,8 @@ nav ul li:hover a {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 4vh;
+  -webkit-animation: jello 2s;
+          animation: jello 2s;
 }
 
 #main7 #containerM71 #shapeM71 {
@@ -1512,10 +1521,6 @@ nav ul li:hover a {
       flex-wrap: wrap;
 }
 
-#main8 .paragM81 {
-  color: #414143;
-}
-
 #main8 #containerM81 {
   height: 44vh;
   width: 89vw;
@@ -1530,6 +1535,8 @@ nav ul li:hover a {
       -ms-flex-align: end;
           align-items: flex-end;
   margin-bottom: 2.5vh;
+  -webkit-animation: jello 2s;
+          animation: jello 2s;
 }
 
 #main8 #containerM81 #containerM82 {
@@ -1552,6 +1559,10 @@ nav ul li:hover a {
   height: 4vw;
   width: 4vw;
   background-color: #5b5b5d;
+}
+
+#main8 .paragM81 {
+  color: #414143;
 }
 
 #main8 #containerM83 {
@@ -1789,5 +1800,43 @@ nav ul li:hover a {
 #main9 #footer9 .colF91 .paragF91 {
   text-align: center;
   color: #414143;
+}
+
+.animation1 {
+  -webkit-animation: fadeIn 1.5s;
+          animation: fadeIn 1.5s;
+}
+
+.animation2 {
+  -webkit-animation: flipInX;
+          animation: flipInX;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.animation3 {
+  -webkit-animation: bounceInRight;
+          animation: bounceInRight;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.animationTitles {
+  -webkit-animation: rubberBand;
+          animation: rubberBand;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 /*# sourceMappingURL=styles.css.map */
